@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+source "$HOME/.config/sketchybar/theme.sh"
+
+ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
+
+# Setting up and starting the helper process
+# HELPER=git.felix.helper
+# killall helper
+# cd $HOME/.config/sketchybar/helper && make
+# $HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# Setting up the general bar appearance and default values
+sketchybar --bar height=24
+sketchybar --bar position=top
+sketchybar --bar sticky=on
+sketchybar --bar color=0x00000000
+sketchybar --bar padding_right=8
+sketchybar --bar padding_left=8
+sketchybar --bar corner_radius=10
+sketchybar --bar y_offset=10
+sketchybar --default updates=when_shown
+sketchybar --default icon.font="$FONT:Regular:14:0"
+sketchybar --default icon.color=$ICON_COLOR
+sketchybar --default icon.drawing=off
+sketchybar --default label.font="$FONT:Bold:14.0"
+sketchybar --default label.color=$LABEL_COLOR
+sketchybar --default label.y_offset=1
+sketchybar --default label.padding_left=$LABEL_PADDING
+sketchybar --default label.padding_right=$LABEL_PADDING
+sketchybar --default label.background.height=24
+sketchybar --default icon.padding_left=$LABEL_PADDING
+sketchybar --default icon.padding_right=$LABEL_PADDING
+sketchybar --default icon.background.height=24
+sketchybar --default background.border_width=2
+sketchybar --default background.height=24
+sketchybar --default background.padding_left=$BG_PADDING
+sketchybar --default background.padding_right=$BG_PADDING
+sketchybar --default background.corner_radius=11
+sketchybar --default popup.background.border_width=2
+sketchybar --default popup.background.corner_radius=11
+sketchybar --default popup.background.border_color=$POPUP_BORDER_COLOR
+sketchybar --default popup.background.color=$POPUP_BACKGROUND_COLOR
+sketchybar --default popup.background.shadow.drawing=on
+# Left
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# Right
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/github.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/spotify.sh"
+
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
+sketchybar --update
