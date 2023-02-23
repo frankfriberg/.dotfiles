@@ -1,28 +1,27 @@
 # fast focus desktop
-ralt - 1 : yabai -m space --focus 1
-ralt - 2 : yabai -m space --focus 2
-ralt - 3 : yabai -m space --focus 3
-ralt - 4 : yabai -m space --focus 4
+cmd + shift - 1 : yabai -m space --focus 1
+cmd + shift - 2 : yabai -m space --focus 2
+cmd + shift - 3 : yabai -m space --focus 3
+cmd + shift - 4 : yabai -m space --focus 4
 
 # send window to desktop and follow focus
-ralt + shift - 1: yabai -m window --space  1; yabai -m space --focus 1
-ralt + shift - 2: yabai -m window --space  2; yabai -m space --focus 2
-ralt + shift - 3: yabai -m window --space  3; yabai -m space --focus 3
-ralt + shift - 4: yabai -m window --space  4; yabai -m space --focus 4
+alt + shift - 1: yabai -m window --space  1; yabai -m space --focus 1
+alt + shift - 2: yabai -m window --space  2; yabai -m space --focus 2
+alt + shift - 3: yabai -m window --space  3; yabai -m space --focus 3
+alt + shift - 4: yabai -m window --space  4; yabai -m space --focus 4
 
 # send window to monitor and follow focus
-ralt + cmd - 1: yabai -m window --display 1; yabai -m display --focus 1
-ralt + cmd - 2: yabai -m window --display 2; yabai -m display --focus 2
+alt + cmd - 1: yabai -m window --display 1; yabai -m display --focus 1
+alt + cmd - 2: yabai -m window --display 2; yabai -m display --focus 2
+
+# focus window
+cmd + shift - l : yabai -m window --focus east || yabai -m display --focus east 
+cmd + shift - h : yabai -m window --focus west || yabai -m display --focus west
+cmd + shift - k : yabai -m window --focus north
+cmd + shift - j : yabai -m window --focus south
+
+# balance size of windows
+cmd + shift - 0x0A : yabai -m space --balance
 
 # toggle window zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
-
-# next / previous tab in browsers
-tab [
-  "safari": skhd -k "cmd + shift - right",
-  "google chrome": skhd -k "ctrl - tab"
-]
-shift - tab [
-  "safari": skhd -k "cmd + shift - left",
-  "google chrome": skhd -k "ctrl + shift - tab"
-]
+cmd + shift - f : yabai -m window --toggle zoom-fullscreen

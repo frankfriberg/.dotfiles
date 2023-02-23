@@ -3,8 +3,6 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^Disk Utility$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
@@ -17,7 +15,6 @@ yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Telegram$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Spark$" manage=off
-yabai -m rule --add app="^Fig$" manage=off
 
 # bsp or float (default: float)
 yabai -m config layout bsp
