@@ -17,6 +17,7 @@ yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Telegram$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Spark$" manage=off
+yabai -m rule --add app="^Fig$" manage=off
 
 # bsp or float (default: float)
 yabai -m config layout bsp
@@ -28,15 +29,15 @@ yabai -m config left_padding   10
 yabai -m config right_padding  10
 yabai -m config window_gap     10
 
-# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
-yabai -m config focus_follows_mouse autoraise
+# # set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+# yabai -m config focus_follows_mouse autofocus
 
 # modify window shadows (default: on, options: on, off, float)
 # example: show shadows only for floating windows
 yabai -m config window_shadow off
 
 # add 20 padding to the top and 0 padding to the bottom of every space located on the main display
-yabai -m config external_bar main:34:0
+# yabai -m config external_bar main:0:34
 
 # Border settings
 yabai -m config window_border on

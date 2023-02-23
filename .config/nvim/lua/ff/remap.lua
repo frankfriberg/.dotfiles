@@ -1,16 +1,10 @@
 -- Shorten function name
-local keymap = vim.keymap.set
+local function keymap(mode, keyfrom, keyto)
+  return vim.keymap.set(mode, keyfrom, keyto, { silent = true })
+end
 
 --Remap space as leader key
 vim.g.mapleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- Normal --
 -- Better window navigation
@@ -22,17 +16,25 @@ keymap("n", "<C-l>", "<C-w>l")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 
+-- Go to end of line or start of line
 keymap("n", "gl", "$")
 keymap("n", "gh", "0")
 
 keymap("n", "U", "<C-r>")
 
+-- Remap open diagnostics from gl
+keymap("n", "gd", "")
+
 -- Save
 keymap("n", "<Leader>w", ":write<CR>")
 
+-- Buffer navigation
+keymap("n", "<Tab>", ":bnext<CR>")
+keymap("n", "<S-Tab>", ":bprev<CR>")
+
 -- Close buffers
-keymap("n", "<Leader>cc", ":Bdelete<CR>")
-keymap("n", "<Leader>ca", ":bufdo :Bdelete<CR>")
+keymap("n", "<leader>bb", ":Bdelete<CR>")
+keymap("n", "<leader>ba", ":bufdo :Bdelete<CR>")
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi")
@@ -47,10 +49,6 @@ keymap("i", "jk", "<ESC>")
 keymap("i", "kj", "<ESC>")
 
 -- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
-
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==")
 keymap("v", "<A-k>", ":m .-2<CR>==")

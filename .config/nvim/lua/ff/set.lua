@@ -1,5 +1,34 @@
+local signs = {
+  Hint = "",
+  Info = "",
+  Warn = "",
+  Error = "",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+local function branch_name()
+	local branch = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
+	if branch ~= "" then
+		return branch
+	else
+		return ""
+	end
+end
+
+
+vim.api.nvim_create_autocmd({"FileType", "BufEnter", "FocusGained"}, {
+	callback = function()
+		vim.b.branch_name = branch_name()
+	end
+})
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.cmd("set noshowmode")
 vim.opt.tabstop = 2
