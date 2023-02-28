@@ -19,6 +19,7 @@ return {
 			"jsonls",
 			"prismals",
 			"html",
+      -- "eslint"
 		}
 
 		require("mason").setup()
@@ -61,7 +62,6 @@ return {
 					local opts = {
 						focusable = false,
 						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-						border = "rounded",
 						source = "always",
 						prefix = " ",
 						scope = "cursor",

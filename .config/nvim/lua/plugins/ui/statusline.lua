@@ -274,7 +274,6 @@ end
 local DefaultStatusline = {
 	ViMode,
 	Space,
-	WorkDir,
 	FileNameBlock,
 	Space,
 	Space,
@@ -302,7 +301,6 @@ local TerminalStatusline = {
 local InactiveStatusline = {
 	condition = conditions.is_not_active,
 	Space,
-	WorkDir,
 	FileName,
 	Align,
 	Git,

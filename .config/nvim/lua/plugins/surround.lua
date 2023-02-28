@@ -1,3 +1,3 @@
 return {
-  "echasnovski/mini.surround",
+  "schasnovski/mini.surround",
 }

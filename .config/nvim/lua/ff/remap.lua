@@ -33,8 +33,8 @@ keymap("n", "<Tab>", ":bnext<CR>")
 keymap("n", "<S-Tab>", ":bprev<CR>")
 
 -- Close buffers
-keymap("n", "<leader>bb", ":Bdelete<CR>")
-keymap("n", "<leader>ba", ":bufdo :Bdelete<CR>")
+keymap("n", "<leader>q", ":Bdelete<CR>")
+keymap("n", "<leader>aq", ":bufdo :Bdelete<CR>")
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi")

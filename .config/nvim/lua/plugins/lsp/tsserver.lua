@@ -4,6 +4,11 @@ local _ = {}
 _.setup = function(on_attach, capabilities)
   require("typescript").setup({
     server = {
+      settings = {
+        completions = {
+          completeFunctionCalls = true
+        }
+      },
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
